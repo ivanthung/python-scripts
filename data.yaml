@@ -1,0 +1,61 @@
+title: Example
+connectionURL: ""
+connectionFileName: ""
+nodes:
+  - id: Electricity
+  - id: Gas and Heat
+  - id: Fuels
+  - id: Aggregate Energy
+    transparent: true
+  - id: CITY
+  - id: FACTORIES
+  - id: Biogas
+    unit: m3
+  - id: Incineration with Energy Recovery
+    unit: TJ
+links:
+  - source: Electricity
+    target: Aggregate Energy
+    value: 960
+    title: Energy
+  - source: Gas and Heat
+    target: Aggregate Energy
+    value: 2600
+    title: Energy
+  - source: Fuels
+    target: Aggregate Energy
+    value: 1000
+    title: Energy
+  - source: Aggregate Energy
+    target: CITY
+    value: 2030
+    title: Energy
+  - source: Aggregate Energy
+    target: FACTORIES
+    value: 2530
+    title: Energy
+  - source: CITY
+    target: Biogas
+    value: 15080
+    scale: 0.1
+  - source: CITY
+    target: Incineration with Energy Recovery
+    value: 25000
+    scale: 0.1
+  - source: FACTORIES
+    target: Biogas
+    value: 23000
+    scale: 0.1
+  - source: Biogas
+    target: Gas and Heat
+    value: 3500
+    scale: 0.1
+groups:
+  - id: Energy
+    color: "#f9ae41"
+    unit: TJ
+    nodes:
+      - Electricity
+      - Gas and Heat
+      - Fuels
+      - Aggregate Energy
